@@ -40,3 +40,10 @@ export const SubHeader = styled.div`
     align-items:center;
     justify-content:center;
 `
+export const List = styled.div`
+    display:grid;
+    grid-template-columns:repeat(5, auto);
+    height:100%;
+    width:80%;
+    padding:1rem 0 5rem 0;
+`

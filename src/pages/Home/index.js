@@ -10,6 +10,7 @@ import Header from '../../Components/Header'
 export default function Home() {
     const dispatch = useDispatch()
     const state = useSelector(state => state)
+    const [color, setColor] = useState()
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 

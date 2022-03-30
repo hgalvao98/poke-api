@@ -38,7 +38,9 @@ export const MyTablePagination = styled(TablePagination)`
     }
 `
 export const List = styled.div`
+    display:grid;
+    grid-template-columns:repeat(5, auto);
     height:100%;
+    width:80%;
     padding:1rem 0 5rem 0;
-    width:100%;    
 `

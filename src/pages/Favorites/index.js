@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import PokeCard from '../../Components/PokeCard'
 import { resetFavorites } from '../../store/actions/usersActions'
-import { Header, Main, SubHeader } from './styles'
+import { Header, Main, SubHeader, List } from './styles'
 
 export default function Favorites() {
     const dispatch = useDispatch()
@@ -20,6 +20,11 @@ export default function Favorites() {
         dispatch(resetFavorites())
     }
 
+    const Lists =
+        <List>
+            {mapFavorites}
+        </List>
+
     return (
         <Main>
             <Header>
@@ -29,7 +34,7 @@ export default function Favorites() {
             <SubHeader>
                 <h1>Your favorite Pokemons</h1>
             </SubHeader>
-            {state.length >= 1 ? mapFavorites : <p className='warning'>There are no pokemons on your favorite list!</p>}
+            {state.length >= 1 ? Lists : <p className='warning'>There are no pokemons on your favorite list!</p>}
             <button onClick={() => resetFav()}>Reset</button>
         </Main>
     )
