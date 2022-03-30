@@ -1,10 +1,10 @@
 import { ADD_FAVORITE, GET_USER, GET_USERS, RESET_FAVORITE, USERS_ERROR, USER_ERROR } from '../types'
 import axios from 'axios'
 
-export const getUsers = (page) => async dispatch => {
+export const getUsers = (page, rowsPerPage) => async dispatch => {
 
-    const perPage = 15;
-    const offset = (page * perPage) - perPage;
+    const perPage = rowsPerPage;
+    const offset = page * rowsPerPage
 
     try {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`)
