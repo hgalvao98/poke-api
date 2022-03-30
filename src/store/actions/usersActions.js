@@ -1,4 +1,4 @@
-import { GET_USER, GET_USERS, USERS_ERROR, USER_ERROR } from '../types'
+import { ADD_FAVORITE, GET_USER, GET_USERS, RESET_FAVORITE, USERS_ERROR, USER_ERROR } from '../types'
 import axios from 'axios'
 
 export const getUsers = (page) => async dispatch => {
@@ -36,4 +36,18 @@ export const getUser = (id) => async dispatch => {
             payload: console.log(e)
         })
     }
+}
+
+export const addFavorites = (pokemon) => {
+    return {
+        type: ADD_FAVORITE,
+        payload: pokemon
+    }
+}
+
+export const resetFavorites = () => {
+    return {
+        type: RESET_FAVORITE,
+    }
+
 }
