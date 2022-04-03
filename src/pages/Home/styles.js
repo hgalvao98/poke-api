@@ -24,7 +24,7 @@ export const Header = styled.div`
     }
 `
 export const Footer = styled.div`
-    width:100%;
+    width:100vw;
     background-color:#3B4CCA;
     display:flex;
     justify-content:center;
@@ -35,6 +35,12 @@ export const Footer = styled.div`
 export const MyTablePagination = styled(TablePagination)` 
     p, button, div, svg{
         color:white;
+    }
+    @media (max-width: 768px){
+        p, button, div, svg{
+        color:white;
+        font-size:10px;
+    }
     }
 `
 
