@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import Header from '../../Components/Header'
+import { MyList } from '../../Components/List/styles'
 import PokeCard from '../../Components/PokeCard'
 import { resetFavorites } from '../../store/actions/usersActions'
-import { Header, Main, SubHeader, List } from './styles'
+import { Main, SubHeader } from './styles'
 
 export default function Favorites() {
     const dispatch = useDispatch()
@@ -20,21 +21,13 @@ export default function Favorites() {
         dispatch(resetFavorites())
     }
 
-    const Lists =
-        <List>
-            {mapFavorites}
-        </List>
-
     return (
         <Main>
-            <Header>
-                <Link to={'/'}><h1>Home</h1></Link>
-                <Link to={'/favorites'}><p>Favorites</p></Link>
-            </Header>
+            <Header />
             <SubHeader>
                 <h1>Your favorite Pokemons</h1>
             </SubHeader>
-            {state.length >= 1 ? Lists : <p className='warning'>There are no pokemons on your favorite list!</p>}
+            {state.length >= 1 ? <MyList children={mapFavorites} /> : <p className='warning'>There are no pokemons on your favorite list!</p>}
             <button onClick={() => resetFav()}>Reset</button>
         </Main>
     )

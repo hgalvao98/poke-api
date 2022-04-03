@@ -10,14 +10,10 @@ export const Main = styled.div`
     width:90%;
     margin:0 auto;
     padding:0 2em 2em 2em;
-    background-color:#FFDE00;
     border-radius:25px;
     border:3px solid #3B4CCA;
     box-shadow: 0px 3px 10px rgba(0,0,0,0.5);
-    :not(:last-child){
-        margin-bottom:10px;
-        
-    }
+    margin-bottom:10px;
     font-size:1.1em;
     font-weight:700;
     transition:transform 0.1s;
@@ -45,4 +41,5 @@ export const Image = styled.div`
     padding:1em 2em;
     margin:1em 0;
     border-radius:25px;
+    
 `
