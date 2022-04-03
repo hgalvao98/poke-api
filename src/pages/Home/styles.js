@@ -37,10 +37,12 @@ export const MyTablePagination = styled(TablePagination)`
         color:white;
     }
 `
-export const List = styled.div`
-    display:grid;
-    grid-template-columns:repeat(5, auto);
-    height:100%;
-    width:80%;
-    padding:1rem 0 5rem 0;
+
+export const Form = styled.form`
+    margin:1em 0 0 0;
+    input{
+        margin-left:1em;
+        height:1px;
+        
+    }
 `

@@ -1,18 +1,21 @@
-import { TablePagination } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { getUsers } from '../../store/actions/usersActions'
 import PokeCard from '../../Components/PokeCard'
-import { Main, Footer, MyTablePagination, List } from './styles'
+import { Main, Footer, MyTablePagination, Form } from './styles'
 import Header from '../../Components/Header'
+import { MyList } from '../../Components/List/styles'
+import { TextField } from '@mui/material'
 
 export default function Home() {
     const dispatch = useDispatch()
     const state = useSelector(state => state)
-    const [color, setColor] = useState()
     const [page, setPage] = useState(0);
+    const [name, setName] = useState('')
     const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [showPoke, setShowPoke] = useState([])
+    const pokemons = state.users.users.results
+
 
     const handleChange = (event, value) => {
         setPage(value)
@@ -23,23 +26,41 @@ export default function Home() {
         setPage(0);
     };
 
-    const pokemons = state.users.users.results
+    const handleInput = (e) => {
+        const value = e.target.value
+        setName(value)
+        filterPokemon(value)
+    }
 
+    const filterPokemon = (userSearch) => {
+        const allPokemon = [...pokemons];
+        setShowPoke(allPokemon.filter((pokemon) =>
+            pokemon.name.toLowerCase().includes(userSearch.toLowerCase())
+        ),
+        );
+    };
+
+    const condition = () => {
+        if (name === '') {
+            return pokemons
+        } else {
+            return showPoke
+        }
+    }
 
     useEffect(() => {
         dispatch(getUsers(page, rowsPerPage))
     }, [page, rowsPerPage])
 
-
-
     return (
         <Main>
             <Header />
-            <input placeholder='Search for pokemon'></input>
-            <button>Search</button>
-            <List>
-                {pokemons && pokemons.map((pokemon) => <PokeCard key={pokemon.name} pokemon={pokemon} />)}
-            </List>
+            <Form>
+                <TextField id="outlined-basic" placeholder="Search" variant="outlined" onChange={handleInput} type='text' value={name}></TextField>
+            </Form>
+
+            {condition() ? <MyList children={condition().map((pokemon) => <PokeCard key={pokemon.name} pokemon={pokemon} />)} /> : <p>Loading...</p>}
+
             <Footer>
                 <MyTablePagination
                     component="div"
@@ -51,6 +72,6 @@ export default function Home() {
                     labelRowsPerPage='Pokemons per page'
                 />
             </Footer>
-        </Main>
+        </Main >
     )
 }

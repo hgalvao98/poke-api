@@ -18,32 +18,9 @@ export const Main = styled.div`
     }
 `
 
-export const Header = styled.div`
-    width:100%;
-    display:flex;
-    flex-direction:row;
-    padding:0 10em;
-    align-items:center;
-    justify-content:space-between;
-    background-color:#3B4CCA;
-    font-family: 'Pokemon Solid', sans-serif;
-    p, h1{
-        letter-spacing:5px;
-        color:#FFDE00;
-        text-shadow: 0 10px 20px #000, 0 0 20px #000;
-    }
-`
-
 export const SubHeader = styled.div`
     width:100%;
     display:flex;
     align-items:center;
     justify-content:center;
-`
-export const List = styled.div`
-    display:grid;
-    grid-template-columns:repeat(5, auto);
-    height:100%;
-    width:80%;
-    padding:1rem 0 5rem 0;
 `

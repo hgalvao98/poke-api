@@ -1,4 +1,4 @@
-export const PokemonTypeColors = {
+const PokemonTypeColors = {
     fire: "#EE8130",
     grass: "#7AC74C",
     eletric: "#F7D02C",
@@ -18,3 +18,5 @@ export const PokemonTypeColors = {
     dark: "#705746",
     steel: "#B7B7CE",
 };
+
+export default PokemonTypeColors
