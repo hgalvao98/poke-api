@@ -89,3 +89,7 @@ body {
 .bug {
   background-color: #a6b91a;
 }
+
+a{
+  text-decoration: none;
+}

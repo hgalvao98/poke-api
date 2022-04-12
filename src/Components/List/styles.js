@@ -8,5 +8,6 @@ export const MyList = styled.div`
     padding:1rem 0 0 0;
     @media (max-width: 768px) {
     grid-template-columns:auto;
+    margin-bottom:100px;
   }
 `
